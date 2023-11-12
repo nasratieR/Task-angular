@@ -1,0 +1,40 @@
+ <div class="create-task-container">
+    <div>
+        <h2>Create new task</h2>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+            <div>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>User Id: </mat-label>
+                    <input matInput placeholder="Type your user Id" type="number" id="userId" formControlName="userId">
+                <mat-hint>User Id must be a number</mat-hint>
+                </mat-form-field>
+                
+            </div>
+
+            <div>
+        
+                    <mat-form-field appearance="fill">
+                    <mat-label>Title: </mat-label>
+                    <input matInput placeholder="what you have to do" type="text" id="title" formControlName="title">
+                    <mat-hint>Type the name of your task</mat-hint>
+                    </mat-form-field>
+            
+            </div>
+            
+            <div>
+            
+                    <mat-label>Is completed: </mat-label>
+                    <mat-checkbox formControlName="completed" class="boolean">Hide required marker</mat-checkbox>
+            
+            
+            </div>
+            <div **ngIf="errorMessage">
+                {{errorMessage}}
+            </div>
+
+            <button mat-raised-button color="primary" type="submit" >Create task</button>
+        
+        </form>
+    </div>
+</div>   
